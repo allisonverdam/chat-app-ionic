@@ -17,9 +17,11 @@
     </ion-item>
   </ion-list>
 
-  <ion-item *ngIf="usuario?.uid">
-    <ion-label color="primary" fixed>Mensagem: </ion-label>
-    <ion-input type="text" placeholder="Digite sua Mensagem" (keyup.enter)="enviarMensagem($event.target.value)"></ion-input>
-  </ion-item>
 
 </ion-content>
+  <ion-footer *ngIf="usuario?.uid">
+    <ion-item>
+      <ion-label color="primary" fixed>Mensagem: </ion-label>
+      <ion-input type="text" placeholder="Digite sua Mensagem" [(ngModel)]="mensagem" (keyup.enter)="enviarMensagem($event.target.value)"></ion-input>
+    </ion-item>
+  </ion-footer>

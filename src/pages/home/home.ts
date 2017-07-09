@@ -14,23 +14,26 @@ import * as firebase from 'firebase/app';
 export class HomePage {
   mensagens: FirebaseListObservable<any[]>;
   usuario: any;
+  mensagem = "";
 
   constructor(public navCtrl: NavController, private afAuth: AngularFireAuth,
     private af: AngularFireDatabase) { }
 
   ionViewDidLoad() {
-    this.afAuth.authState.subscribe(usr => this.usuario = usr);
+    this.afAuth.authState.subscribe(usr => {
+      this.usuario = usr;
 
-    this.mensagens = this.af.list('/mensagens', {
-      query: {
-        limitToLast: 10
-      }
-    })
-
+      this.mensagens = this.af.list('/mensagens', {
+        query: {
+          limitToLast: 10
+        }
+      })
+    });
   }
 
   enviarMensagem(msg) {
     this.mensagens.push({ mensagem: msg, usuario: this.usuario.displayName })
+    this.mensagem = "";
   }
 
   autenticar() {
