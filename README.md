@@ -1,26 +1,23 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+## Como usar
 
-## How to use this template
+*Você precisa* criar um app no firebase, configurar o login com facebook e copiar as configurações, criar um app no facebook e configurar o login.
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+É necessario copiar as configurações do firebase e colocar no arquivo `app.module.ts`.
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
-
+Ex: 
 ```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
+const config = {
+  apiKey: "123123",
+  authDomain: "123123",
+  databaseURL: "123123",
+  projectId: "123123",
+  storageBucket: "123123",
+  messagingSenderId: "123123"
+};
 ```
 
-Then, to run it, cd into `myBlank` and run:
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
+### Ionic
 
-Substitute ios for android if not on a Mac.
+Para usar o app é o de sempre, digita `npm install` pra instalar os pacotes do npm, depois é só digitar `npm serve`.
 
